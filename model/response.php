@@ -1,46 +1,24 @@
 <?php
-/**
-this class to description model response
- * */
+//Это модель ответа. На данный момент она работает только с url (адрес сайта).
 
 class response
 {
-    private $name; /** name suite */
-    private $url; /** url suite */
+    private $url; // поле url здесь будет храниться адрес сайта
 
-    /**
-     * response constructor.
-     * @param $name
-     * @param $url
-     */
-    public function __construct($name, $url)
+
+    public function __construct($url)//конструктор класса. Он вызывается при создании объекта и инициализирует поле
     {
-        $this->name = $name;
         $this->url = $url;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUrl()
+    public function getUrl()//возвращает значение поля url
     {
         return $this->url;
     }
 
-    public function toString()
+    public function toString()// возвращает переменную с переносом строки (изначально составлялся json, но я его убрал)
     {
-        return "{" .
-            "\"name\":\"" . $this->name ."\",\n".
-            "\"price\":\"" . $this->url ."\",\n".
-            '}';
+        return $this->url."\n";
     }
 
 
